@@ -17,6 +17,8 @@ export default defineConfig({
     globals: true,
     setupFiles: './setupTests.ts',
     css: true,
+    include: ['src/**/*.{test,spec}.{js,jsx,ts,tsx}', 'src/**/__tests__/**/*.{js,jsx,ts,tsx}'],
+    exclude: ['node_modules', 'dist', 'tests/**', 'playwright-report/**', 'test-results/**'],
   },
   build: {
     rollupOptions: {
