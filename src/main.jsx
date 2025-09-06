@@ -30,36 +30,39 @@ import { CartProvider } from './context/CartContext.jsx'
 import { ToastProvider } from './components/ui/use-toast'
 import { FavoritesProvider } from './context/FavoritesContext.jsx'
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      { index: true, element: <HomePage /> },
-      { path: 'products', element: <ProductsPage /> },
-      { path: 'products/:productId', element: <ProductDetailPage /> },
-      { path: 'categories/:categoryId', element: <CategoryPage /> },
-      { path: 'about', element: <AboutPage /> },
-      { path: 'contact', element: <ContactPage /> },
-      { path: 'care', element: <CarePage /> },
-      { path: 'consultation', element: <ConsultationPage /> },
-      { path: 'shipping-returns', element: <ShippingReturnsPage /> },
-      { path: 'gift-cards', element: <GiftCardsPage /> },
-      { path: 'sustainability', element: <SustainabilityPage /> },
-      { path: 'careers', element: <CareersPage /> },
-      { path: 'privacy-policy', element: <PrivacyPolicyPage /> },
-      { path: 'registry', element: <RegistryPage /> },
-      { path: 'business', element: <BusinessPage /> },
-      { path: 'press', element: <PressPage /> },
-      { path: 'foundation', element: <FoundationPage /> },
-      { path: 'faq', element: <FAQPage /> },
-      { path: 'profile', element: <ProfilePage /> },
-      { path: 'favorites', element: <FavoritesPage /> },
-      { path: 'cart', element: <CartPage /> },
-    ],
-  },
-])
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <App />,
+      errorElement: <ErrorPage />,
+      children: [
+        { index: true, element: <HomePage /> },
+        { path: 'products', element: <ProductsPage /> },
+        { path: 'products/:productId', element: <ProductDetailPage /> },
+        { path: 'categories/:categoryId', element: <CategoryPage /> },
+        { path: 'about', element: <AboutPage /> },
+        { path: 'contact', element: <ContactPage /> },
+        { path: 'care', element: <CarePage /> },
+        { path: 'consultation', element: <ConsultationPage /> },
+        { path: 'shipping-returns', element: <ShippingReturnsPage /> },
+        { path: 'gift-cards', element: <GiftCardsPage /> },
+        { path: 'sustainability', element: <SustainabilityPage /> },
+        { path: 'careers', element: <CareersPage /> },
+        { path: 'privacy-policy', element: <PrivacyPolicyPage /> },
+        { path: 'registry', element: <RegistryPage /> },
+        { path: 'business', element: <BusinessPage /> },
+        { path: 'press', element: <PressPage /> },
+        { path: 'foundation', element: <FoundationPage /> },
+        { path: 'faq', element: <FAQPage /> },
+        { path: 'profile', element: <ProfilePage /> },
+        { path: 'favorites', element: <FavoritesPage /> },
+        { path: 'cart', element: <CartPage /> },
+      ],
+    },
+  ],
+  { basename: import.meta.env.BASE_URL },
+)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
