@@ -5,6 +5,8 @@ import { Search, MapPin, Phone, User, Heart, ShoppingBag, Menu, X } from 'lucide
 import { Dialog, DialogContent } from '@/components/ui/dialog.jsx'
 import './App.css'
 import { categories } from '@/data/categories.js'
+import analytics from '@/utils/analyticsManager'
+import { registerWebVitals } from '@/utils/webVitals'
 import { products } from '@/data/products.js'
 import { useCart } from '@/context/CartContext'
 import { useFavorites } from '@/context/FavoritesContext'
@@ -36,6 +38,11 @@ function App() {
   const { totalItems } = useCart()
   const { totalFavorites } = useFavorites()
 
+  // Регистрация Web Vitals один раз при монтировании приложения
+  useEffect(() => {
+    registerWebVitals()
+  }, [])
+
   // Прокрутка к началу при смене маршрута (плавно), после отрисовки контента
   useEffect(() => {
     let raf1 = 0
@@ -51,6 +58,10 @@ function App() {
             window.scrollTo(0, 0)
           }
         }
+        // Трекинг просмотра страницы (включается только при consent.analytics)
+        try {
+          analytics.trackPageView(location.pathname)
+        } catch {}
       })
     })
     return () => {

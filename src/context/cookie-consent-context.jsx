@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
+import analytics from '@/utils/analyticsManager'
 
 const COOKIE_CONSENT_KEY = 'cookie_consent';
 
@@ -20,6 +21,8 @@ export function CookieConsentProvider({ children }) {
 
   // Load saved consent on mount
   useEffect(() => {
+    // Инициализация analytics (RU-only, disabled по умолчанию)
+    analytics.init({ enabled: false, debug: true })
     const savedConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
     if (savedConsent) {
       try {
@@ -31,6 +34,13 @@ export function CookieConsentProvider({ children }) {
     }
     setIsInitialized(true);
   }, []);
+
+  // Включение/выключение analytics по согласию
+  useEffect(() => {
+    if (!isInitialized) return;
+    if (consent.analytics) analytics.enable();
+    else analytics.disable();
+  }, [isInitialized, consent.analytics])
 
   // Save consent to localStorage when it changes
   const updateConsent = (newConsent) => {
