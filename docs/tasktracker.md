@@ -79,12 +79,12 @@
 - Зависимости: Данные каталога, маршруты категорий/товара
 
 ## Задача: Этап 3 — SEO и разметка Schema.org
-- Статус: Не начата
+- Статус: Завершена
 - Описание: Улучшить видимость в поиске и превью в соцсетях.
 - Шаги выполнения:
-  - [ ] Настроить React Helmet для тайтлов/мета per-route
-  - [ ] Добавить JSON-LD: Organization, BreadcrumbList, Product
-  - [ ] Подготовить sitemap.xml и robots.txt
+  - [x] Настроить React Helmet для тайтлов/мета per-route (react-helmet-async)
+  - [x] Добавить JSON-LD: Organization, BreadcrumbList, Product
+  - [x] Подготовить sitemap.xml и robots.txt
   - [ ] Проверить валидаторами (Rich Results Test)
 - Зависимости: Структура роутинга, доступ к деплою
 

@@ -7,6 +7,18 @@
 
 # Changelog
 
+## [2025-09-06] - Этап 3: SEO — helmet-async, JSON-LD, sitemap/robots
+
+### Добавлено
+- JSON-LD: `Organization` (Home), `BreadcrumbList` (Category/Product), `Product` (ProductDetailPage).
+- Файлы `public/sitemap.xml` и `public/robots.txt` (RU-only, базовые маршруты).
+
+### Изменено
+- Миграция на `react-helmet-async`: подключён `HelmetProvider` в `src/main.jsx`, заменены импорты `Helmet` на страницах (`AboutPage`, `CarePage`, `ConsultationPage`, `GiftCardsPage`).
+
+### Исправлено
+- N/A
+
 ## [2025-09-06] - Завершение задач: Consent MVP и Исследование требований
 
 ### Добавлено
