@@ -4,6 +4,23 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/assets/hit_silver_logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SPA GitHub Pages: restore original path from 404 redirect query (?p=...) -->
+    <script>
+      (function () {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var p = params.get('p');
+          if (p) {
+            var target = decodeURIComponent(p);
+            if (target && target !== window.location.pathname + window.location.search) {
+              history.replaceState(null, '', target);
+            }
+          }
+        } catch (e) {
+          // noop
+        }
+      })();
+    </script>
     <title>HIT SILVER GALLERY | Ювелирные изделия, подарки и аксессуары</title>
   </head>
   <body>
