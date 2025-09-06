@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const ShippingReturnsPage = () => (
   <div className="container mx-auto py-8 max-w-3xl">
@@ -11,7 +11,10 @@ const ShippingReturnsPage = () => (
         <li>Доставка в другие регионы — 3-7 дней</li>
         <li>Возможность самовывоза из бутиков</li>
       </ul>
-      <p className="text-gray-600">После оформления заказа вы получите SMS и email с подтверждением и трек-номером для отслеживания посылки.</p>
+      <p className="text-gray-600">
+        После оформления заказа вы получите SMS и email с подтверждением и трек-номером для
+        отслеживания посылки.
+      </p>
     </section>
     <section className="mb-8">
       <h2 className="text-xl font-semibold mb-2">Условия возврата</h2>
@@ -20,15 +23,27 @@ const ShippingReturnsPage = () => (
         <li>Товар должен быть в идеальном состоянии, с бирками и в оригинальной упаковке</li>
         <li>Средства возвращаются тем же способом, которым была произведена оплата</li>
       </ul>
-      <p className="text-gray-600">Для оформления возврата обратитесь в наш сервисный центр или заполните онлайн-заявку.</p>
+      <p className="text-gray-600">
+        Для оформления возврата обратитесь в наш сервисный центр или заполните онлайн-заявку.
+      </p>
     </section>
     <section>
       <h2 className="text-xl font-semibold mb-2">Контакты для возврата</h2>
-      <p>Телефон: <a href="tel:+78001234567" className="text-tiffany-blue hover:underline">8 800 123-45-67</a></p>
-      <p>Email: <a href="mailto:returns@jewelry.com" className="text-tiffany-blue hover:underline">returns@jewelry.com</a></p>
+      <p>
+        Телефон:{' '}
+        <a href="tel:+78001234567" className="text-tiffany-blue hover:underline">
+          8 800 123-45-67
+        </a>
+      </p>
+      <p>
+        Email:{' '}
+        <a href="mailto:returns@jewelry.com" className="text-tiffany-blue hover:underline">
+          returns@jewelry.com
+        </a>
+      </p>
       <p>Адрес для возврата: г. Москва, ул. Престижная, 10, ТЦ "Luxury Plaza" (отдел возвратов)</p>
     </section>
   </div>
-);
+)
 
-export default ShippingReturnsPage; 
+export default ShippingReturnsPage

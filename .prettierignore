@@ -1,0 +1,19 @@
+# Dependencies / build
+node_modules/
+dist/
+.vite/
+
+# Package managers lockfiles
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Coverage / reports
+coverage/
+stats.html
+
+# Assets
+public/
+
+# Husky generated
+.husky/_/

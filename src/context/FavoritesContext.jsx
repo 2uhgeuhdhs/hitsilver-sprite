@@ -1,55 +1,55 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react'
 
-const FavoritesContext = createContext();
+const FavoritesContext = createContext()
 
-export const useFavorites = () => useContext(FavoritesContext);
+export const useFavorites = () => useContext(FavoritesContext)
 
 export const FavoritesProvider = ({ children }) => {
-  const [favorites, setFavorites] = useState([]);
-  const [totalFavorites, setTotalFavorites] = useState(0);
+  const [favorites, setFavorites] = useState([])
+  const [totalFavorites, setTotalFavorites] = useState(0)
 
   // Загружаем избранное из localStorage при инициализации
   useEffect(() => {
-    const saved = localStorage.getItem('favorites');
+    const saved = localStorage.getItem('favorites')
     if (saved) {
       try {
-        setFavorites(JSON.parse(saved));
+        setFavorites(JSON.parse(saved))
       } catch {
-        setFavorites([]);
+        setFavorites([])
       }
     }
-  }, []);
+  }, [])
 
   // Сохраняем избранное в localStorage и обновляем счётчик
   useEffect(() => {
     if (favorites.length > 0) {
-      localStorage.setItem('favorites', JSON.stringify(favorites));
+      localStorage.setItem('favorites', JSON.stringify(favorites))
     } else {
-      localStorage.removeItem('favorites');
+      localStorage.removeItem('favorites')
     }
-    setTotalFavorites(favorites.length);
-  }, [favorites]);
+    setTotalFavorites(favorites.length)
+  }, [favorites])
 
   // Добавить в избранное
   const addToFavorites = (product) => {
-    setFavorites(prev => {
-      if (prev.some(item => item.id === product.id)) return prev;
-      return [...prev, product];
-    });
-  };
+    setFavorites((prev) => {
+      if (prev.some((item) => item.id === product.id)) return prev
+      return [...prev, product]
+    })
+  }
 
   // Удалить из избранного
   const removeFromFavorites = (productId) => {
-    setFavorites(prev => prev.filter(item => item.id !== productId));
-  };
+    setFavorites((prev) => prev.filter((item) => item.id !== productId))
+  }
 
   // Проверить, есть ли товар в избранном
   const isFavorite = (productId) => {
-    return favorites.some(item => item.id === productId);
-  };
+    return favorites.some((item) => item.id === productId)
+  }
 
   // Получить количество избранных
-  const getFavoritesCount = () => favorites.length;
+  const getFavoritesCount = () => favorites.length
 
   const value = {
     favorites,
@@ -58,11 +58,7 @@ export const FavoritesProvider = ({ children }) => {
     removeFromFavorites,
     isFavorite,
     getFavoritesCount,
-  };
+  }
 
-  return (
-    <FavoritesContext.Provider value={value}>
-      {children}
-    </FavoritesContext.Provider>
-  );
-}; 
+  return <FavoritesContext.Provider value={value}>{children}</FavoritesContext.Provider>
+}

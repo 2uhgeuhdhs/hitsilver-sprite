@@ -1,9 +1,10 @@
-/**
- * @file: memory-bank/activeContext.md
- * @description: Текущий активный контекст и ближайшие шаги.
- * @dependencies: memory-bank/progress.md, docs/tasktracker.md
- * @created: 2025-08-18
- */
+/\*\*
+
+- @file: memory-bank/activeContext.md
+- @description: Текущий активный контекст и ближайшие шаги.
+- @dependencies: memory-bank/progress.md, docs/tasktracker.md
+- @created: 2025-08-18
+  \*/
 
 # Active Context (2025-09-04)
 

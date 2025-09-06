@@ -19,9 +19,7 @@ export function ProductGrid({ products, columns = 4, loading = false, skeletonCo
               <div className="h-6 bg-gray-100 rounded mt-3 w-24" />
             </div>
           ))
-        : products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+        : products.map((product) => <ProductCard key={product.id} product={product} />)}
     </div>
   )
 }

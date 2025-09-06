@@ -64,19 +64,22 @@ async function main() {
       const r = await convertOne(f)
       results.push(r)
       if (r.skipped) console.log(`⏭️  Пропущено (меньше порога): ${path.relative(ASSETS_DIR, f)}`)
-      else console.log(`✅ Конвертировано: ${path.relative(ASSETS_DIR, f)} → ${path.basename(r.webpOut)}, ${path.basename(r.avifOut)}`)
+      else
+        console.log(
+          `✅ Конвертировано: ${path.relative(ASSETS_DIR, f)} → ${path.basename(r.webpOut)}, ${path.basename(r.avifOut)}`,
+        )
     } catch (e) {
       console.warn(`⚠️ Ошибка конвертации ${f}:`, e.message)
     }
   }
 
   // Итоговая сводка
-  const converted = results.filter(r => !r.skipped).length
-  const skipped = results.filter(r => r.skipped).length
+  const converted = results.filter((r) => !r.skipped).length
+  const skipped = results.filter((r) => r.skipped).length
   console.log(`Готово. Конвертировано: ${converted}, пропущено: ${skipped}.`)
 }
 
-main().catch(err => {
+main().catch((err) => {
   console.error(err)
   process.exit(1)
 })

@@ -1,9 +1,10 @@
-/**
- * @file: memory-bank/techContext.md
- * @description: Технический контекст: стек, деплой, интеграции (пока тёмные пятна).
- * @dependencies: docs/project.md
- * @created: 2025-08-18
- */
+/\*\*
+
+- @file: memory-bank/techContext.md
+- @description: Технический контекст: стек, деплой, интеграции (пока тёмные пятна).
+- @dependencies: docs/project.md
+- @created: 2025-08-18
+  \*/
 
 # Tech Context
 

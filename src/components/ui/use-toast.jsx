@@ -1,50 +1,50 @@
 // Adapted from https://ui.shadcn.com/docs/components/toast
-import { useState, useEffect, createContext, useContext } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react'
 
-const TOAST_TIMEOUT = 3000;
-const ToastContext = createContext({});
+const TOAST_TIMEOUT = 3000
+const ToastContext = createContext({})
 
 export const ToastProvider = ({ children }) => {
-  const [toasts, setToasts] = useState([]);
+  const [toasts, setToasts] = useState([])
 
   const toast = ({ title, description, duration = TOAST_TIMEOUT }) => {
-    const id = Math.random().toString(36).substring(2, 9);
-    setToasts((prevToasts) => [...prevToasts, { id, title, description, duration }]);
-    return id;
-  };
+    const id = Math.random().toString(36).substring(2, 9)
+    setToasts((prevToasts) => [...prevToasts, { id, title, description, duration }])
+    return id
+  }
 
   const dismiss = (id) => {
-    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
-  };
+    setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id))
+  }
 
   return (
     <ToastContext.Provider value={{ toast, dismiss }}>
       {children}
       <ToastContainer toasts={toasts} dismiss={dismiss} />
     </ToastContext.Provider>
-  );
-};
+  )
+}
 
 export const useToast = () => {
-  const context = useContext(ToastContext);
+  const context = useContext(ToastContext)
   if (context === undefined) {
-    throw new Error('useToast must be used within a ToastProvider');
+    throw new Error('useToast must be used within a ToastProvider')
   }
-  return context;
-};
+  return context
+}
 
 const Toast = ({ toast, dismiss }) => {
-  const { id, title, description, duration } = toast;
+  const { id, title, description, duration } = toast
 
   useEffect(() => {
-    if (!duration) return;
+    if (!duration) return
 
     const timeoutId = setTimeout(() => {
-      dismiss(id);
-    }, duration);
+      dismiss(id)
+    }, duration)
 
-    return () => clearTimeout(timeoutId);
-  }, [id, duration, dismiss]);
+    return () => clearTimeout(timeoutId)
+  }, [id, duration, dismiss])
 
   return (
     <div
@@ -73,8 +73,8 @@ const Toast = ({ toast, dismiss }) => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const ToastContainer = ({ toasts, dismiss }) => {
   return (
@@ -87,5 +87,5 @@ const ToastContainer = ({ toasts, dismiss }) => {
         ))}
       </div>
     </div>
-  );
-}; 
+  )
+}

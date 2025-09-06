@@ -1,6 +1,6 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
 
 const GiftCardsPage = () => {
   const giftCardOptions = [
@@ -8,25 +8,29 @@ const GiftCardsPage = () => {
     { id: 2, name: 'Премиум', price: '10 000 ₽', image: '/images/gift-cards/premium.jpg' },
     { id: 3, name: 'Люкс', price: '25 000 ₽', image: '/images/gift-cards/luxury.jpg' },
     { id: 4, name: 'Эксклюзив', price: '50 000 ₽', image: '/images/gift-cards/exclusive.jpg' },
-  ];
+  ]
 
   return (
     <div className="container mx-auto px-4 py-8">
       <Helmet>
         <title>Подарочные карты | HIT SILVER GALLERY</title>
-        <meta name="description" content="Подарочные карты HIT SILVER GALLERY — идеальный подарок для ценителей ювелирных изделий." />
+        <meta
+          name="description"
+          content="Подарочные карты HIT SILVER GALLERY — идеальный подарок для ценителей ювелирных изделий."
+        />
       </Helmet>
-      
+
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl md:text-4xl font-bold mb-6">Подарочные карты</h1>
-        
+
         <div className="prose max-w-none mb-8">
           <p className="text-lg">
-            Подарочная карта — идеальный подарок для тех, кто ценит возможность самостоятельного выбора.
-            Наши подарочные карты доступны в различных номиналах и могут быть использованы для покупки любых товаров в нашем магазине.
+            Подарочная карта — идеальный подарок для тех, кто ценит возможность самостоятельного
+            выбора. Наши подарочные карты доступны в различных номиналах и могут быть использованы
+            для покупки любых товаров в нашем магазине.
           </p>
         </div>
-        
+
         <div className="bg-gray-50 p-6 rounded-lg mb-10">
           <h2 className="text-2xl font-semibold mb-4">Преимущества подарочных карт</h2>
           <ul className="grid md:grid-cols-2 gap-4">
@@ -56,12 +60,15 @@ const GiftCardsPage = () => {
             </li>
           </ul>
         </div>
-        
+
         <h2 className="text-2xl font-semibold mb-6">Выберите подарочную карту</h2>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           {giftCardOptions.map((card) => (
-            <div key={card.id} className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+            <div
+              key={card.id}
+              className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+            >
               <div className="h-48 bg-gray-200 flex items-center justify-center">
                 <div className="text-gray-400 text-sm">Изображение подарочной карты</div>
               </div>
@@ -75,22 +82,30 @@ const GiftCardsPage = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="bg-gray-100 p-6 rounded-lg mb-10">
           <h2 className="text-2xl font-semibold mb-4">Как использовать подарочную карту</h2>
           <ol className="list-decimal pl-5 space-y-2">
             <li>При покупке в магазине предъявите карту консультанту</li>
-            <li>При покупке онлайн введите номер карты и PIN-код в соответствующее поле при оформлении заказа</li>
-            <li>Если сумма покупки превышает номинал карты, разницу можно оплатить любым доступным способом</li>
+            <li>
+              При покупке онлайн введите номер карты и PIN-код в соответствующее поле при оформлении
+              заказа
+            </li>
+            <li>
+              Если сумма покупки превышает номинал карты, разницу можно оплатить любым доступным
+              способом
+            </li>
             <li>Если сумма покупки меньше номинала карты, остаток сохраняется на карте</li>
           </ol>
         </div>
-        
+
         <div className="text-center">
           <h2 className="text-2xl font-semibold mb-4">Остались вопросы?</h2>
-          <p className="mb-4">Свяжитесь с нами для получения дополнительной информации о подарочных картах</p>
-          <Link 
-            to="/contact" 
+          <p className="mb-4">
+            Свяжитесь с нами для получения дополнительной информации о подарочных картах
+          </p>
+          <Link
+            to="/contact"
             className="inline-block px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors"
           >
             Связаться с нами
@@ -98,7 +113,7 @@ const GiftCardsPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default GiftCardsPage; 
+export default GiftCardsPage

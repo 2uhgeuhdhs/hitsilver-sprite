@@ -1,9 +1,10 @@
-/**
- * @file: memory-bank/productContext.md
- * @description: Контекст продукта: аудитория, рынки, юридические рамки, каналы.
- * @dependencies: memory-bank/projectbrief.md, docs/project.md
- * @created: 2025-08-18
- */
+/\*\*
+
+- @file: memory-bank/productContext.md
+- @description: Контекст продукта: аудитория, рынки, юридические рамки, каналы.
+- @dependencies: memory-bank/projectbrief.md, docs/project.md
+- @created: 2025-08-18
+  \*/
 
 # Product Context
 

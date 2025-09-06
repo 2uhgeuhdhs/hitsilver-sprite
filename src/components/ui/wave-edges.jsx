@@ -47,9 +47,27 @@ export default function WaveEdges() {
             </linearGradient>
           </defs>
           <g className="wave-group">
-            <path className="wave-path wave-path--1" d="M50 0 C 35 20, 65 40, 50 60 C 35 80, 65 90, 50 100" fill="none" stroke="url(#waveGradL)" strokeWidth="2" />
-            <path className="wave-path wave-path--2" d="M40 0 C 25 22, 55 42, 40 62 C 25 82, 55 92, 40 100" fill="none" stroke="url(#waveGradL)" strokeWidth="1.5" />
-            <path className="wave-path wave-path--3" d="M60 0 C 45 18, 75 38, 60 58 C 45 78, 75 88, 60 100" fill="none" stroke="url(#waveGradL)" strokeWidth="1" />
+            <path
+              className="wave-path wave-path--1"
+              d="M50 0 C 35 20, 65 40, 50 60 C 35 80, 65 90, 50 100"
+              fill="none"
+              stroke="url(#waveGradL)"
+              strokeWidth="2"
+            />
+            <path
+              className="wave-path wave-path--2"
+              d="M40 0 C 25 22, 55 42, 40 62 C 25 82, 55 92, 40 100"
+              fill="none"
+              stroke="url(#waveGradL)"
+              strokeWidth="1.5"
+            />
+            <path
+              className="wave-path wave-path--3"
+              d="M60 0 C 45 18, 75 38, 60 58 C 45 78, 75 88, 60 100"
+              fill="none"
+              stroke="url(#waveGradL)"
+              strokeWidth="1"
+            />
           </g>
         </svg>
       </div>
@@ -62,9 +80,27 @@ export default function WaveEdges() {
             </linearGradient>
           </defs>
           <g className="wave-group">
-            <path className="wave-path wave-path--1" d="M50 0 C 35 20, 65 40, 50 60 C 35 80, 65 90, 50 100" fill="none" stroke="url(#waveGradR)" strokeWidth="2" />
-            <path className="wave-path wave-path--2" d="M40 0 C 25 22, 55 42, 40 62 C 25 82, 55 92, 40 100" fill="none" stroke="url(#waveGradR)" strokeWidth="1.5" />
-            <path className="wave-path wave-path--3" d="M60 0 C 45 18, 75 38, 60 58 C 45 78, 75 88, 60 100" fill="none" stroke="url(#waveGradR)" strokeWidth="1" />
+            <path
+              className="wave-path wave-path--1"
+              d="M50 0 C 35 20, 65 40, 50 60 C 35 80, 65 90, 50 100"
+              fill="none"
+              stroke="url(#waveGradR)"
+              strokeWidth="2"
+            />
+            <path
+              className="wave-path wave-path--2"
+              d="M40 0 C 25 22, 55 42, 40 62 C 25 82, 55 92, 40 100"
+              fill="none"
+              stroke="url(#waveGradR)"
+              strokeWidth="1.5"
+            />
+            <path
+              className="wave-path wave-path--3"
+              d="M60 0 C 45 18, 75 38, 60 58 C 45 78, 75 88, 60 100"
+              fill="none"
+              stroke="url(#waveGradR)"
+              strokeWidth="1"
+            />
           </g>
         </svg>
       </div>

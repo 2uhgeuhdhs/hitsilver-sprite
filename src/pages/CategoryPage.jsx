@@ -13,7 +13,7 @@ export default function CategoryPage() {
   const category = getCategoryById(categoryId)
   const subcategory = subcategoryId ? getSubcategory(categoryId, subcategoryId) : null
   const products = getProductsByCategory(categoryId, subcategoryId)
-  
+
   if (!category) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
@@ -27,43 +27,47 @@ export default function CategoryPage() {
       </div>
     )
   }
-  
+
   return (
     <>
       <Helmet>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Главная",
-              "item": "/"
-            },
-            ...(subcategory ? [
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
               {
-                "@type": "ListItem",
-                "position": 2,
-                "name": category.name,
-                "item": `/categories/${category.id}`
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Главная',
+                item: '/',
               },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": subcategory.name,
-                "item": `/categories/${category.id}?subcategory=${subcategory.id}`
-              }
-            ] : [
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": category.name,
-                "item": `/categories/${category.id}`
-              }
-            ])
-          ]
-        })}</script>
+              ...(subcategory
+                ? [
+                    {
+                      '@type': 'ListItem',
+                      position: 2,
+                      name: category.name,
+                      item: `/categories/${category.id}`,
+                    },
+                    {
+                      '@type': 'ListItem',
+                      position: 3,
+                      name: subcategory.name,
+                      item: `/categories/${category.id}?subcategory=${subcategory.id}`,
+                    },
+                  ]
+                : [
+                    {
+                      '@type': 'ListItem',
+                      position: 2,
+                      name: category.name,
+                      item: `/categories/${category.id}`,
+                    },
+                  ]),
+            ],
+          })}
+        </script>
       </Helmet>
       {/* Breadcrumbs */}
       <div className="bg-gray-50 py-4">
@@ -71,7 +75,9 @@ export default function CategoryPage() {
           <nav className="flex">
             <ol className="flex items-center space-x-2 text-sm text-gray-500">
               <li>
-                <Link to="/" className="hover:text-tiffany-blue">Главная</Link>
+                <Link to="/" className="hover:text-tiffany-blue">
+                  Главная
+                </Link>
               </li>
               <li>
                 <ChevronRight className="h-4 w-4" />
@@ -83,7 +89,7 @@ export default function CategoryPage() {
           </nav>
         </div>
       </div>
-      
+
       {/* Category Header */}
       <div className="relative">
         <div className="h-80 overflow-hidden">
@@ -96,12 +102,14 @@ export default function CategoryPage() {
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white max-w-3xl px-4">
-            <h1 className="text-4xl font-light mb-4">{subcategory ? subcategory.name : category.name}</h1>
+            <h1 className="text-4xl font-light mb-4">
+              {subcategory ? subcategory.name : category.name}
+            </h1>
             <p className="text-lg text-white/90 mb-8">{category.description}</p>
           </div>
         </div>
       </div>
-      
+
       {/* Subcategories */}
       {category.subcategories && category.subcategories.length > 0 && (
         <div className="bg-white py-8 border-b border-gray-200">
@@ -120,14 +128,14 @@ export default function CategoryPage() {
           </div>
         </div>
       )}
-      
+
       {/* Products */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-light text-gray-900">Все товары</h2>
           <div className="text-sm text-gray-500">Показано {products.length} товаров</div>
         </div>
-        
+
         {products.length > 0 ? (
           <ProductGrid products={products} />
         ) : (
@@ -141,5 +149,4 @@ export default function CategoryPage() {
       </div>
     </>
   )
-} 
-
+}

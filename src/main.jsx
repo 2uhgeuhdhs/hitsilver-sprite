@@ -57,14 +57,14 @@ const router = createBrowserRouter([
       { path: 'profile', element: <ProfilePage /> },
       { path: 'favorites', element: <FavoritesPage /> },
       { path: 'cart', element: <CartPage /> },
-    ]
-  }
+    ],
+  },
 ])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HelmetProvider>
-      <Suspense fallback={<div style={{padding:20}}>Загрузка...</div>}>
+      <Suspense fallback={<div style={{ padding: 20 }}>Загрузка...</div>}>
         <ToastProvider>
           <FavoritesProvider>
             <CartProvider>

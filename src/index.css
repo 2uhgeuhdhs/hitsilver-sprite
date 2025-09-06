@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
-@import "tailwindcss";
-@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 /* Removed unsupported at-rules (@custom-variant, @theme). All variables are defined in :root/.dark below. */
 
@@ -37,8 +37,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --tiffany-blue: #0ABAB5;
-  --tiffany-blue-dark: #089B96;
+  --tiffany-blue: #0abab5;
+  --tiffany-blue-dark: #089b96;
 }
 
 .dark {
@@ -76,7 +76,9 @@
 }
 
 /* Base styles (no Tailwind @apply to avoid lints) */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   border-color: var(--border);
 }
 body {
@@ -91,8 +93,14 @@ html {
 
 /* Анимации переходов между страницами */
 @keyframes route-fade-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .route-fade {
@@ -125,15 +133,20 @@ html {
 }
 
 /* Мобильная адаптация */
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden;
 }
 
 /* Анимация для мобильного меню */
 @keyframes slide-in-left {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .animate-slide-in-left {
@@ -151,20 +164,20 @@ html, body {
   h3 {
     font-size: 1.1rem;
   }
-  
+
   /* Адаптация для модальных окон */
   .DialogContent {
     width: 95%;
     max-width: 95%;
     padding: 1rem;
   }
-  
+
   /* Адаптация компонентов */
   .max-w-7xl {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
+
   /* Мобильные кнопки футера */
   .mobile-footer-buttons {
     position: fixed;
@@ -178,28 +191,28 @@ html, body {
     border-top: 1px solid #f0f0f0;
     z-index: 40;
   }
-  
+
   /* Отступ для главного контента на мобильных */
   .mobile-footer-space {
     margin-bottom: 4rem;
   }
-  
+
   /* Адаптация для страницы с каталогом товаров */
   .products-page-container {
     flex-direction: column;
   }
-  
+
   .filters-sidebar {
     width: 100%;
     margin-bottom: 1rem;
   }
-  
+
   /* Адаптация для карточек товаров */
   .product-card img {
     aspect-ratio: 1;
     object-fit: cover;
   }
-  
+
   .site-title {
     font-size: 1.1rem !important;
     white-space: normal;
@@ -238,29 +251,29 @@ html, body {
   .hide-on-mobile {
     display: none;
   }
-  
+
   /* Адаптация для подвала сайта */
   footer .grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   /* Адаптивный размер текста */
   .sm-text-center {
     text-align: center;
   }
-  
+
   /* Для страницы товара */
   .product-detail-container {
     grid-template-columns: 1fr;
   }
 }
 
-.site-title, .logo-text, .header-logo-text, .hit-silver-logo-text {
+.site-title,
+.logo-text,
+.header-logo-text,
+.hit-silver-logo-text {
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 0.08em;
 }
-
-
-

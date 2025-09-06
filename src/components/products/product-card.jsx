@@ -15,7 +15,7 @@ export function ProductCard({ product, isFavorite: propIsFavorite, onFavToggle }
   const inFav = isFavorite(id)
 
   const handleFav = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (onFavToggle) {
       onFavToggle(product)
       return
@@ -28,7 +28,7 @@ export function ProductCard({ product, isFavorite: propIsFavorite, onFavToggle }
   }
 
   const handleAddCart = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     addToCart(product, 1)
     toast({
       title: 'Товар добавлен в корзину',
@@ -64,7 +64,10 @@ export function ProductCard({ product, isFavorite: propIsFavorite, onFavToggle }
       </button>
 
       {/* Product image */}
-      <Link to={`/products/${slug}`} className="block aspect-square bg-gray-100 overflow-hidden rounded-lg">
+      <Link
+        to={`/products/${slug}`}
+        className="block aspect-square bg-gray-100 overflow-hidden rounded-lg"
+      >
         <img
           src={images[0] || '/images/placeholder.jpg'}
           alt={name}
@@ -81,13 +84,20 @@ export function ProductCard({ product, isFavorite: propIsFavorite, onFavToggle }
             <span className="ml-1 text-gray-500 text-xs hidden sm:inline">({reviews} отзывов)</span>
             <span className="ml-1 text-gray-500 text-xs sm:hidden">({reviews})</span>
           </div>
-          <div className="text-xs sm:text-sm font-medium text-tiffany-blue">{formatPrice(price)}</div>
+          <div className="text-xs sm:text-sm font-medium text-tiffany-blue">
+            {formatPrice(price)}
+          </div>
         </div>
         <h3 className="text-sm sm:text-base font-medium text-gray-900">
           <Link to={`/products/${slug}`}>{name}</Link>
         </h3>
         <div className="pt-2 sm:pt-3">
-          <Button className={`w-full text-xs sm:text-sm py-1 sm:py-2 ${inCart ? 'bg-gray-300 text-gray-500' : 'bg-tiffany-blue text-white hover:bg-tiffany-blue-dark'}`} onClick={handleAddCart} disabled={inCart} size="sm">
+          <Button
+            className={`w-full text-xs sm:text-sm py-1 sm:py-2 ${inCart ? 'bg-gray-300 text-gray-500' : 'bg-tiffany-blue text-white hover:bg-tiffany-blue-dark'}`}
+            onClick={handleAddCart}
+            disabled={inCart}
+            size="sm"
+          >
             <ShoppingBag className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
             {inCart ? `В корзине${quantityInCart > 1 ? ` (${quantityInCart})` : ''}` : 'В корзину'}
           </Button>
@@ -95,4 +105,4 @@ export function ProductCard({ product, isFavorite: propIsFavorite, onFavToggle }
       </div>
     </div>
   )
-} 
+}

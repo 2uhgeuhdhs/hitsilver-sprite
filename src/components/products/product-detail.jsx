@@ -14,30 +14,30 @@ export function ProductDetail({ product }) {
   const { addToCart, isInCart, getItemQuantity } = useCart()
   const { toast } = useToast()
   const { isFavorite, addToFavorites, removeFromFavorites } = useFavorites()
-  
+
   if (!product) return null
 
   const handleIncrement = () => {
-    setQuantity(prev => prev + 1)
+    setQuantity((prev) => prev + 1)
   }
 
   const handleDecrement = () => {
-    setQuantity(prev => (prev > 1 ? prev - 1 : 1))
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1))
   }
 
   const handleAddToCart = () => {
     setIsAdding(true)
-    
+
     // Добавляем товар в корзину
     addToCart(product, quantity)
-    
+
     // Показываем уведомление
     toast({
-      title: "Товар добавлен в корзину",
+      title: 'Товар добавлен в корзину',
       description: `${product.name} (${quantity} шт.) добавлен в корзину`,
       duration: 3000,
     })
-    
+
     // Сбрасываем состояние через небольшую задержку для анимации
     setTimeout(() => {
       setIsAdding(false)
@@ -115,14 +115,14 @@ export function ProductDetail({ product }) {
                 <Truck size={16} />
                 <span>Бесплатная доставка</span>
               </div>
-              
+
               {itemInCartQuantity > 0 && (
                 <div className="bg-green-50 text-green-700 p-3 rounded-md flex items-center space-x-2 text-sm">
                   <Check size={16} />
                   <span>Уже в корзине: {itemInCartQuantity} шт.</span>
                 </div>
               )}
-              
+
               <div className="flex flex-col sm:flex-row items-center gap-4">
                 <div className="border border-gray-300 rounded-md flex items-center">
                   <button
@@ -141,9 +141,9 @@ export function ProductDetail({ product }) {
                     <Plus size={16} />
                   </button>
                 </div>
-                
+
                 <div className="flex items-center gap-2 w-full sm:w-auto">
-                  <Button 
+                  <Button
                     className="flex-1 bg-tiffany-blue text-white hover:bg-tiffany-blue-dark transition-all"
                     onClick={handleAddToCart}
                     disabled={isAdding}
@@ -158,12 +158,12 @@ export function ProductDetail({ product }) {
                       </>
                     )}
                   </Button>
-                  
-                  <Button 
-                    variant={inFav ? "default" : "outline"} 
-                    size="icon" 
-                    aria-label={inFav ? "Убрать из избранного" : "Добавить в избранное"}
-                    className={inFav ? "bg-tiffany-blue text-white hover:bg-tiffany-blue-dark" : ""}
+
+                  <Button
+                    variant={inFav ? 'default' : 'outline'}
+                    size="icon"
+                    aria-label={inFav ? 'Убрать из избранного' : 'Добавить в избранное'}
+                    className={inFav ? 'bg-tiffany-blue text-white hover:bg-tiffany-blue-dark' : ''}
                     onClick={handleFav}
                   >
                     <Heart className="h-5 w-5" fill={inFav ? '#1abc9c' : 'none'} />
@@ -176,9 +176,15 @@ export function ProductDetail({ product }) {
           <div className="border-t border-gray-200 pt-6">
             <Tabs defaultValue="features">
               <TabsList className="w-full grid grid-cols-3">
-                <TabsTrigger value="features" className="text-xs sm:text-sm">Характеристики</TabsTrigger>
-                <TabsTrigger value="delivery" className="text-xs sm:text-sm">Доставка</TabsTrigger>
-                <TabsTrigger value="returns" className="text-xs sm:text-sm">Возврат</TabsTrigger>
+                <TabsTrigger value="features" className="text-xs sm:text-sm">
+                  Характеристики
+                </TabsTrigger>
+                <TabsTrigger value="delivery" className="text-xs sm:text-sm">
+                  Доставка
+                </TabsTrigger>
+                <TabsTrigger value="returns" className="text-xs sm:text-sm">
+                  Возврат
+                </TabsTrigger>
               </TabsList>
               <TabsContent value="features" className="mt-4">
                 <ul className="list-disc pl-5 space-y-2 text-gray-600 text-sm sm:text-base">
@@ -214,4 +220,4 @@ export function ProductDetail({ product }) {
       </div>
     </div>
   )
-} 
+}

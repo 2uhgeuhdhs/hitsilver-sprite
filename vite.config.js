@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
   build: {
@@ -49,7 +49,7 @@ export default defineConfig({
           'vendor-recharts': ['recharts'],
           'vendor-motion': ['framer-motion'],
           'vendor-utils': ['clsx', 'class-variance-authority', 'tailwind-merge'],
-        }
+        },
       },
       plugins: [
         visualizer({
@@ -57,8 +57,8 @@ export default defineConfig({
           template: 'treemap',
           gzipSize: true,
           brotliSize: true,
-        })
-      ]
-    }
-  }
+        }),
+      ],
+    },
+  },
 })
