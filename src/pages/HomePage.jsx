@@ -6,20 +6,10 @@ import { getNewProducts, getBestsellers, products } from '@/data/products'
 import hitSilverLogo from '../assets/hit_silver_logo.png'
 
 // Import images
-import pearlJewelry from '../assets/pearl_jewelry.webp'
 import necklacesPendants from '../assets/necklaces_pendants.webp'
 import earrings from '../assets/earrings.webp'
 import rings from '../assets/rings.webp'
 import bracelets from '../assets/bracelets.webp'
-import homeAccessories from '../assets/home_accessories.webp'
-import watches from '../assets/watches.webp'
-import highJewelryCollection from '../assets/high_jewelry_collection.webp'
-import img1 from '../assets/1.png'
-import img2 from '../assets/2.png'
-import img3 from '../assets/3.png'
-import img4 from '../assets/4.png'
-import img5 from '../assets/5.png'
-import homeCustom from '../assets/home_custom.jpg'
 
 const premiumCollectionImg = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80";
 const pearlJewelryImg = "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80";
