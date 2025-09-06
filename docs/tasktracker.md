@@ -113,7 +113,7 @@
 - Описание: Улучшить качество кода, автоматизировать проверки и базовые тесты.
 - Шаги выполнения:
   - [x] Добавить Prettier, husky и lint-staged (pre-commit)
-  - [ ] Включить Vitest + React Testing Library для unit-тестов
+  - [x] Включить Vitest + React Testing Library для unit-тестов
   - [ ] Добавить Playwright для smoke E2E сценариев
 - Зависимости: Настройка CI/локальные хуки
 
