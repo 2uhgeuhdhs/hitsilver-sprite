@@ -19,6 +19,19 @@
 ### Исправлено
 - N/A
 
+## [2025-09-06] - Этап 1: Первая итерация оптимизаций (code splitting, chunks, images)
+
+### Добавлено
+- Включена ленивная загрузка маршрутов через `React.lazy` + `Suspense` в `src/main.jsx`.
+
+### Изменено
+- Настроено разбиение вендорных чанков через `build.rollupOptions.output.manualChunks` в `vite.config.js` (`vendor-react`, `vendor-router`, `vendor-radix`, `vendor-recharts`, `vendor-motion`, `vendor-utils`).
+- Удалены неиспользуемые тяжёлые импорты изображений из `src/App.jsx`.
+- В `src/pages/HomePage.jsx` для изображений категорий добавлены `loading="lazy"`, `decoding="async"`, `sizes` и заданы размеры логотипа.
+
+### Исправлено
+- N/A
+
 ## [2025-09-06] - Добавлены правила Git workflow и напоминания
 
 ### Добавлено

@@ -6,7 +6,6 @@ import { getNewProducts, getBestsellers, products } from '@/data/products'
 import hitSilverLogo from '../assets/hit_silver_logo.png'
 
 // Import images
-import tiffanyHardwearHero from '../assets/tiffany_hardwear_hero.png'
 import pearlJewelry from '../assets/pearl_jewelry.webp'
 import necklacesPendants from '../assets/necklaces_pendants.webp'
 import earrings from '../assets/earrings.webp'
@@ -37,7 +36,7 @@ function HomePage() {
       <section className="relative bg-gray-50">
         <div className="flex flex-col lg:flex-row min-h-[400px] items-center justify-center py-12">
           <div className="flex-1 flex flex-col items-center justify-center p-8">
-            <img src={hitSilverLogo} alt="HIT SILVER GALLERY logo" className="w-32 h-32 object-contain rounded-full mb-4 shadow border border-gray-200" />
+            <img src={hitSilverLogo} alt="HIT SILVER GALLERY logo" className="w-32 h-32 object-contain rounded-full mb-4 shadow border border-gray-200" width="128" height="128" decoding="async" />
             <h1 className="text-4xl font-light text-black mb-4 tracking-wider">HIT SILVER GALLERY</h1>
             <p className="text-lg text-gray-700 mb-2">Галерея украшений из серебра 925 пробы</p>
             <p className="text-gray-600 mb-4">г. Уфа, ул. Чернышевского, 75, Галерея Арт</p>
@@ -85,9 +84,12 @@ function HomePage() {
             <Link to="/categories/jewelry?subcategory=necklaces" className="text-center group cursor-pointer">
               <div className="aspect-square mb-4 overflow-hidden rounded-lg">
                 <img 
-                  src={necklacesPendants} 
-                  alt="Ожерелья и подвески" 
+                  src={necklacesPendants}
+                  alt="Ожерелья и подвески"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
               <h3 className="text-sm font-medium">Ожерелья и подвески</h3>
@@ -95,9 +97,12 @@ function HomePage() {
             <Link to="/categories/jewelry?subcategory=earrings" className="text-center group cursor-pointer">
               <div className="aspect-square mb-4 overflow-hidden rounded-lg">
                 <img 
-                  src={earrings} 
-                  alt="Серьги" 
+                  src={earrings}
+                  alt="Серьги"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
               <h3 className="text-sm font-medium">Серьги</h3>
@@ -105,9 +110,12 @@ function HomePage() {
             <Link to="/categories/jewelry?subcategory=rings" className="text-center group cursor-pointer">
               <div className="aspect-square mb-4 overflow-hidden rounded-lg">
                 <img 
-                  src={rings} 
-                  alt="Кольца" 
+                  src={rings}
+                  alt="Кольца"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
               <h3 className="text-sm font-medium">Кольца</h3>
@@ -115,9 +123,12 @@ function HomePage() {
             <Link to="/categories/jewelry?subcategory=bracelets" className="text-center group cursor-pointer">
               <div className="aspect-square mb-4 overflow-hidden rounded-lg">
                 <img 
-                  src={bracelets} 
-                  alt="Браслеты" 
+                  src={bracelets}
+                  alt="Браслеты"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
               <h3 className="text-sm font-medium">Браслеты</h3>

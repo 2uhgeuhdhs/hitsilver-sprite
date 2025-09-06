@@ -12,15 +12,6 @@ import { CookieConsentProvider } from '@/context/cookie-consent-context'
 import { CookieConsentBanner } from '@/components/ui/cookie-consent-banner'
 
 // Import images
-import tiffanyHardwearHero from './assets/tiffany_hardwear_hero.png'
-import elsaPerettiJewelry from './assets/elsa_peretti_jewelry.webp'
-import pearlJewelry from './assets/pearl_jewelry.webp'
-import necklacesPendants from './assets/necklaces_pendants.webp'
-import earrings from './assets/earrings.webp'
-import rings from './assets/rings.webp'
-import bracelets from './assets/bracelets.webp'
-import watches from './assets/watches.webp'
-import highJewelryCollection from './assets/high_jewelry_collection.webp'
 import hitSilverLogo from './assets/hit_silver_logo.png'
 
 function App() {
