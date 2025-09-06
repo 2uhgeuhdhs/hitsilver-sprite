@@ -83,6 +83,7 @@ export default function ProductsPage() {
   const [priceRange, setPriceRange] = useState(DEFAULT_RANGE)
   const [selectedCategories, setSelectedCategories] = useState([])
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   // Категории для фильтра
   const categoryMap = {
@@ -181,16 +182,22 @@ export default function ProductsPage() {
         ? prev.filter(l => l !== label)
         : [...prev, label]
     )
+    setIsLoading(true)
+    setTimeout(() => setIsLoading(false), 400)
   }
 
   // Обработчик фильтра цены
   const handlePriceChange = (value) => {
     setPriceRange(value)
+    setIsLoading(true)
+    setTimeout(() => setIsLoading(false), 400)
   }
 
   // Обработчик сортировки
   const handleSortChange = (value) => {
     setSortBy(value)
+    setIsLoading(true)
+    setTimeout(() => setIsLoading(false), 400)
   }
 
   // Сброс фильтров
@@ -198,6 +205,8 @@ export default function ProductsPage() {
     setSortBy('featured')
     setPriceRange(DEFAULT_RANGE)
     setSelectedCategories([])
+    setIsLoading(true)
+    setTimeout(() => setIsLoading(false), 300)
   }
 
   return (
@@ -341,11 +350,12 @@ export default function ProductsPage() {
             </div>
           )}
 
-          {filteredProducts.length > 0 ? (
-            <ProductGrid products={filteredProducts} />
+          {filteredProducts.length > 0 || isLoading ? (
+            <ProductGrid products={filteredProducts} loading={isLoading} skeletonCount={8} />
           ) : (
             <div className="text-center py-12 bg-gray-50 rounded-lg">
-              <p className="text-gray-500">Товары не найдены. Попробуйте изменить фильтры.</p>
+              <p className="text-gray-500 mb-4">Товары не найдены. Попробуйте изменить фильтры.</p>
+              <Button variant="outline" size="sm" onClick={handleResetFilters}>Сбросить фильтры</Button>
             </div>
           )}
         </div>
