@@ -114,7 +114,7 @@
 - Шаги выполнения:
   - [x] Добавить Prettier, husky и lint-staged (pre-commit)
   - [x] Включить Vitest + React Testing Library для unit-тестов
-  - [ ] Добавить Playwright для smoke E2E сценариев
+  - [x] Добавить Playwright для smoke E2E сценариев
 - Зависимости: Настройка CI/локальные хуки
 
 ## Задача: Этап 6 — Мультиязычность (i18n)

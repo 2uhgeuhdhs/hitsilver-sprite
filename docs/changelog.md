@@ -40,6 +40,36 @@
 
 - N/A
 
+## [2025-09-06] - Этап 5 (DX): Playwright — smoke E2E
+
+### Добавлено
+
+- `playwright.config.ts`: webServer (pnpm dev), baseURL `http://localhost:5173`, jsdom‑окружение браузера.
+- Тесты: `tests/smoke.home.spec.ts` (заголовок и CTA на главной), `tests/smoke.products.spec.ts` (переход с каталога в карточку и кнопка «Добавить в корзину»).
+
+### Изменено
+
+- `package.json`: скрипты `test:e2e`, `test:e2e:ui`.
+
+### Исправлено
+
+- Устойчивость сценариев: закрытие возможных оверлеев (Radix) и уточнение селекторов (strict mode).
+
+## [2025-09-06] - Этап 5 (DX): Vitest + RTL и первый unit-тест
+
+### Добавлено
+
+- `vitest.config.ts`: окружение Node, coverage, watch.
+- `tests/unit/home.test.tsx`: первый тест компонента `HomeHero` (рендер и кнопка).
+
+### Изменено
+
+- `package.json`: скрипты `test:unit`, `test:unit:ui`.
+
+### Исправлено
+
+- N/A
+
 ## [2025-09-06] - Каталог: удалены демо‑товары часов
 
 ### Изменено
