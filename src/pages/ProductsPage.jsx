@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { ProductGrid } from '@/components/products/product-grid'
 import { products } from '@/data/products'
 import { Button } from '@/components/ui/button'
@@ -76,8 +77,10 @@ const FiltersContent = ({
 )
 
 export default function ProductsPage() {
+  const DEFAULT_RANGE = [0, 1000000]
+  const [searchParams, setSearchParams] = useSearchParams()
   const [sortBy, setSortBy] = useState('featured')
-  const [priceRange, setPriceRange] = useState([0, 1000000])
+  const [priceRange, setPriceRange] = useState(DEFAULT_RANGE)
   const [selectedCategories, setSelectedCategories] = useState([])
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false)
 
@@ -91,6 +94,46 @@ export default function ProductsPage() {
     'Часы': ['watches'],
   }
   const categoryLabels = Object.keys(categoryMap)
+
+  // Инициализация состояния из URL при первом рендере
+  useEffect(() => {
+    const sort = searchParams.get('sort') || 'featured'
+    const cats = searchParams.get('categories')
+    const price = searchParams.get('price') // формат: min-max
+
+    setSortBy(sort)
+    if (cats) {
+      const parsed = cats.split(',').filter(v => categoryLabels.includes(v))
+      setSelectedCategories(parsed)
+    }
+    if (price) {
+      const [minStr, maxStr] = price.split('-')
+      const min = Number(minStr)
+      const max = Number(maxStr)
+      if (!Number.isNaN(min) && !Number.isNaN(max)) {
+        setPriceRange([min, max])
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // Синхронизация состояния с URL
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams)
+    if (sortBy && sortBy !== 'featured') params.set('sort', sortBy)
+    else params.delete('sort')
+
+    if (selectedCategories.length > 0) params.set('categories', selectedCategories.join(','))
+    else params.delete('categories')
+
+    if (priceRange[0] !== DEFAULT_RANGE[0] || priceRange[1] !== DEFAULT_RANGE[1]) {
+      params.set('price', `${priceRange[0]}-${priceRange[1]}`)
+    } else {
+      params.delete('price')
+    }
+
+    setSearchParams(params, { replace: true })
+  }, [sortBy, selectedCategories, priceRange])
 
   // Фильтрация товаров
   const filteredProducts = useMemo(() => {
@@ -153,7 +196,7 @@ export default function ProductsPage() {
   // Сброс фильтров
   const handleResetFilters = () => {
     setSortBy('featured')
-    setPriceRange([0, 1000000])
+    setPriceRange(DEFAULT_RANGE)
     setSelectedCategories([])
   }
 
@@ -261,7 +304,43 @@ export default function ProductsPage() {
               </SelectContent>
             </Select>
           </div>
-          
+
+          {/* Чипы активных фильтров */}
+          {(selectedCategories.length > 0 || priceRange[0] !== DEFAULT_RANGE[0] || priceRange[1] !== DEFAULT_RANGE[1]) && (
+            <div className="flex flex-wrap items-center gap-2 mb-4">
+              {selectedCategories.map(label => (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={() => handleCategoryChange(label)}
+                  className="inline-flex items-center gap-1 px-2 py-1 rounded-full border text-sm hover:bg-gray-50"
+                  aria-label={`Убрать фильтр ${label}`}
+                >
+                  <span>{label}</span>
+                  <X size={14} />
+                </button>
+              ))}
+              {(priceRange[0] !== DEFAULT_RANGE[0] || priceRange[1] !== DEFAULT_RANGE[1]) && (
+                <button
+                  type="button"
+                  onClick={() => setPriceRange(DEFAULT_RANGE)}
+                  className="inline-flex items-center gap-1 px-2 py-1 rounded-full border text-sm hover:bg-gray-50"
+                  aria-label="Сбросить фильтр цены"
+                >
+                  <span>{`Цена: ${priceRange[0]}–${priceRange[1]} ₽`}</span>
+                  <X size={14} />
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={handleResetFilters}
+                className="inline-flex items-center gap-1 px-2 py-1 rounded-full border text-sm hover:bg-gray-50"
+              >
+                Сбросить всё
+              </button>
+            </div>
+          )}
+
           {filteredProducts.length > 0 ? (
             <ProductGrid products={filteredProducts} />
           ) : (
