@@ -1,6 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
 
 /* Removed unsupported at-rules (@custom-variant, @theme). All variables are defined in :root/.dark below. */
 
