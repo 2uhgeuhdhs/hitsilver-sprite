@@ -55,6 +55,22 @@
 
 - Устойчивость сценариев: закрытие возможных оверлеев (Radix) и уточнение селекторов (strict mode).
 
+## [2025-09-06] - CI: GitHub Actions для unit и E2E
+
+### Добавлено
+
+- Workflow `.github/workflows/ci.yml` с двумя job: Unit (Vitest) и E2E (Playwright).
+- Кэширование pnpm и установка браузеров Playwright в CI.
+- Артефакты отчётов: `playwright-report/` и `test-results/` при падениях.
+
+### Изменено
+
+- N/A
+
+### Исправлено
+
+- N/A
+
 ## [2025-09-06] - Этап 5 (DX): Vitest + RTL и первый unit-тест
 
 ### Добавлено

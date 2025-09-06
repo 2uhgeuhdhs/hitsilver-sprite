@@ -23,3 +23,5 @@
 - 2025-09-06: Этап 4 — внедрено consent gating для аналитики (RU‑only, no‑op `analyticsManager`), подключён сбор Web Vitals (CLS/INP/LCP/TTFB/FCP) с локальным логированием по согласию; трекинг `pageview` при смене маршрута.
 - 2025-09-06: Каталог — удалены демо‑товары часов: `philip-watch-classic-women` (id:21), `urban-smart-demo` (id:22).
 - 2025-09-06: Фикс сборки CSS — перенос `@import` Google Fonts в начало `src/index.css` для соответствия правилу PostCSS.
+- 2025-09-06: Этап 5 — DX и тестирование: интегрированы Vitest + RTL (`setupTests.ts`, jsdom, `vite.config.js`) и Playwright (`playwright.config.ts`, `tests/smoke.*.spec.ts`); все тесты (unit 3/3, e2e 2/2) проходят локально.
+- 2025-09-06: CI — добавлен GitHub Actions workflow `.github/workflows/ci.yml` для unit (Vitest) и E2E (Playwright), с кэшированием pnpm и выгрузкой артефактов `playwright-report/`, `test-results/` при падениях.
