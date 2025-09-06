@@ -29,8 +29,11 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 10.4.1
           run_install: true
+
+      - name: Show pnpm version
+        run: pnpm -v
 
       - name: Run unit tests
         run: pnpm test
@@ -52,8 +55,11 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 10.4.1
           run_install: true
+
+      - name: Show pnpm version
+        run: pnpm -v
 
       - name: Install Playwright Browsers
         run: pnpm dlx playwright install --with-deps
