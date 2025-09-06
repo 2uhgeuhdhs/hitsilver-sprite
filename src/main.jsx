@@ -1,4 +1,5 @@
 import { StrictMode, Suspense, lazy } from 'react'
+import { HelmetProvider } from 'react-helmet-async'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
@@ -62,14 +63,16 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Suspense fallback={<div style={{padding:20}}>Загрузка...</div>}>
-      <ToastProvider>
-        <FavoritesProvider>
-          <CartProvider>
-            <RouterProvider router={router} />
-          </CartProvider>
-        </FavoritesProvider>
-      </ToastProvider>
-    </Suspense>
+    <HelmetProvider>
+      <Suspense fallback={<div style={{padding:20}}>Загрузка...</div>}>
+        <ToastProvider>
+          <FavoritesProvider>
+            <CartProvider>
+              <RouterProvider router={router} />
+            </CartProvider>
+          </FavoritesProvider>
+        </ToastProvider>
+      </Suspense>
+    </HelmetProvider>
   </StrictMode>,
 )
