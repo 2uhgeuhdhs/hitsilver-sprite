@@ -6,31 +6,31 @@ export function useGoogleAnalytics(measurementId) {
   const { hasConsent } = useCookieConsent()
 
   useEffect(() => {
-    if (hasConsent('analytics') && measurementId && typeof window !== 'undefined') {
-      // Initialize Google Analytics
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag('js', new Date())
-      gtag('config', measurementId)
+    if (!hasConsent('analytics') || !measurementId || typeof window === 'undefined') return
+    // RU-only safe init behind consent (kept but not used in current setup)
+    window.dataLayer = window.dataLayer || []
+    function gtag() {
+      window.dataLayer.push(arguments)
+    }
+    window.gtag = gtag
+    gtag('js', new Date())
+    gtag('config', measurementId)
 
-      // Add the script to the document
-      const script = document.createElement('script')
-      script.async = true
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
-      document.head.appendChild(script)
+    const script = document.createElement('script')
+    script.async = true
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
+    document.head.appendChild(script)
 
-      return () => {
-        // Cleanup if needed
+    return () => {
+      try {
         document.head.removeChild(script)
-      }
+      } catch {}
     }
   }, [hasConsent, measurementId])
 
   // Function to track page views
   const trackPageView = (url) => {
-    if (hasConsent('analytics') && window.gtag) {
+    if (hasConsent('analytics') && typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'page_view', {
         page_path: url,
         send_to: measurementId,
@@ -40,7 +40,7 @@ export function useGoogleAnalytics(measurementId) {
 
   // Function to track events
   const trackEvent = (action, category, label, value) => {
-    if (hasConsent('analytics') && window.gtag) {
+    if (hasConsent('analytics') && typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', action, {
         event_category: category,
         event_label: label,
@@ -87,21 +87,23 @@ export function useYandexMetrika(counterId) {
 
       return () => {
         // Cleanup if needed
-        delete window.ym
+        try {
+          delete window.ym
+        } catch {}
       }
     }
   }, [hasConsent, counterId])
 
   // Function to track page views
   const trackPageView = (url) => {
-    if (hasConsent('analytics') && window.ym) {
+    if (hasConsent('analytics') && typeof window !== 'undefined' && window.ym) {
       window.ym(counterId, 'hit', url)
     }
   }
 
   // Function to track events
   const trackEvent = (action, params) => {
-    if (hasConsent('analytics') && window.ym) {
+    if (hasConsent('analytics') && typeof window !== 'undefined' && window.ym) {
       window.ym(counterId, 'reachGoal', action, params)
     }
   }

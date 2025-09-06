@@ -1,9 +1,8 @@
-import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link, useOutletContext } from 'react-router-dom'
 import { Button } from '@/components/ui/button.jsx'
 import { ProductGrid } from '@/components/products/product-grid'
-import { getNewProducts, getBestsellers, products } from '@/data/products'
+import { getNewProducts, products } from '@/data/products'
 import hitSilverLogo from '../assets/hit_silver_logo.png'
 
 // Import images
@@ -12,14 +11,11 @@ import earrings from '../assets/earrings.webp'
 import rings from '../assets/rings.webp'
 import bracelets from '../assets/bracelets.webp'
 
-const premiumCollectionImg =
-  'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'
-const pearlJewelryImg =
-  'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80'
+// (unused demo images removed)
 
 function HomePage() {
   const newProducts = getNewProducts(4)
-  const bestsellers = getBestsellers(4)
+  // const bestsellers = getBestsellers(4) // not used on the page currently
   const userProducts = products.filter((p) => p.id >= 9 && p.id <= 18)
   const { openCallModal, openConsultModal, openDeliveryModal } = useOutletContext()
 
