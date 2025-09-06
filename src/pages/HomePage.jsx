@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { Link, useOutletContext } from 'react-router-dom'
 import { Button } from '@/components/ui/button.jsx'
 import { ProductGrid } from '@/components/products/product-grid'
@@ -22,6 +23,13 @@ function HomePage() {
 
   return (
     <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "HIT SILVER GALLERY"
+        })}</script>
+      </Helmet>
       {/* Hero Section */}
       <section className="relative bg-gray-50">
         <div className="flex flex-col lg:flex-row min-h-[400px] items-center justify-center py-12">

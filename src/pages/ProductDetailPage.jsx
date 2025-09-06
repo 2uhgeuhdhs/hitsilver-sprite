@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { ProductDetail } from '@/components/products/product-detail'
 import { ProductGrid } from '@/components/products/product-grid'
 import { getProductBySlug, getRandomProducts } from '@/data/products'
@@ -29,6 +30,35 @@ export default function ProductDetailPage() {
   
   return (
     <>
+      <Helmet>
+        {/* BreadcrumbList */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "/" },
+            { "@type": "ListItem", "position": 2, "name": category?.name || 'Категория', "item": `/categories/${product.categoryId}` },
+            { "@type": "ListItem", "position": 3, "name": product.name, "item": `/products/${product.slug || productId}` }
+          ]
+        })}</script>
+        {/* Product */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": product.name,
+          "description": product.description,
+          "category": category?.name || product.categoryId,
+          "image": (product.images || []).map(src => src.startsWith('http') ? src : src),
+          "brand": { "@type": "Organization", "name": "HIT SILVER GALLERY" },
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "RUB",
+            "price": product.price,
+            "availability": product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            "url": `/products/${product.slug || productId}`
+          }
+        })}</script>
+      </Helmet>
       {/* Breadcrumbs */}
       <div className="bg-gray-50 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

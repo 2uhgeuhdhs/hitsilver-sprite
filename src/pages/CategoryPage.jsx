@@ -1,4 +1,5 @@
 import { useParams, Link, useSearchParams } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { ProductGrid } from '@/components/products/product-grid'
 import { getProductsByCategory } from '@/data/products'
 import { getCategoryById, getSubcategory } from '@/data/categories'
@@ -29,6 +30,41 @@ export default function CategoryPage() {
   
   return (
     <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Главная",
+              "item": "/"
+            },
+            ...(subcategory ? [
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": category.name,
+                "item": `/categories/${category.id}`
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": subcategory.name,
+                "item": `/categories/${category.id}?subcategory=${subcategory.id}`
+              }
+            ] : [
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": category.name,
+                "item": `/categories/${category.id}`
+              }
+            ])
+          ]
+        })}</script>
+      </Helmet>
       {/* Breadcrumbs */}
       <div className="bg-gray-50 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
