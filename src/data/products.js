@@ -254,6 +254,48 @@ export const products = [
     new: true,
     bestseller: false,
   }
+  ,
+  {
+    id: 21,
+    name: "Часы Philip Watch Classic (женские)",
+    slug: "philip-watch-classic-women",
+    description: "Классические часы с утончённым дизайном для повседневного образа.",
+    price: 55900,
+    categoryId: "watches",
+    subcategoryId: "women",
+    images: ["/images/products/watch_philip_auto_silver_white.jpg"],
+    features: [
+      "Кварцевый механизм",
+      "Корпус из нержавеющей стали",
+      "Минеральное стекло",
+      "Водозащита 3 ATM"
+    ],
+    inStock: true,
+    rating: 4.6,
+    reviews: 0,
+    new: true,
+    bestseller: false,
+  },
+  {
+    id: 22,
+    name: "Смарт‑часы Urban Smart (демо)",
+    slug: "urban-smart-demo",
+    description: "Лёгкие смарт‑часы с базовым набором функций (демо‑товар).",
+    price: 15900,
+    categoryId: "watches",
+    subcategoryId: "smart",
+    images: ["/images/products/firefox_8pojCP5Kwm.png"],
+    features: [
+      "Уведомления",
+      "Трекинг активности",
+      "Быстрая зарядка"
+    ],
+    inStock: true,
+    rating: 4.3,
+    reviews: 0,
+    new: true,
+    bestseller: false,
+  }
 ]
 
 export function getProductById(productId) {
