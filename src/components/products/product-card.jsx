@@ -6,7 +6,7 @@ import { useCart } from '@/context/CartContext'
 import { useToast } from '@/components/ui/use-toast'
 import { useFavorites } from '@/context/FavoritesContext'
 
-export function ProductCard({ product, isFavorite: propIsFavorite, onFavToggle }) {
+export function ProductCard({ product, onFavToggle }) {
   const { id, name, slug, price, images, rating, reviews, new: isNew, bestseller } = product
   const { addToCart, isInCart, getItemQuantity } = useCart()
   const { toast } = useToast()

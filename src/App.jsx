@@ -17,7 +17,6 @@ import { CookieConsentBanner } from '@/components/ui/cookie-consent-banner'
 import hitSilverLogo from './assets/hit_silver_logo.png'
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isConsultOpen, setIsConsultOpen] = useState(false)
   const [consultForm, setConsultForm] = useState({ name: '', phone: '', email: '', comment: '' })
   const [consultSent, setConsultSent] = useState(false)

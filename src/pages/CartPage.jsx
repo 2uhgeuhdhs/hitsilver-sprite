@@ -5,7 +5,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog.jsx'
 import { useCart } from '@/context/CartContext'
 
 export default function CartPage() {
-  const { cartItems, updateQuantity, removeFromCart, totalPrice, totalItems } = useCart()
+  const { cartItems, updateQuantity, removeFromCart, totalPrice } = useCart()
   const [checkoutOpen, setCheckoutOpen] = React.useState(false)
 
   if (!cartItems.length) {

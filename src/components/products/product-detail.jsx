@@ -11,7 +11,7 @@ export function ProductDetail({ product }) {
   const [mainImage, setMainImage] = useState(product.images[0])
   const [quantity, setQuantity] = useState(1)
   const [isAdding, setIsAdding] = useState(false)
-  const { addToCart, isInCart, getItemQuantity } = useCart()
+  const { addToCart, getItemQuantity } = useCart()
   const { toast } = useToast()
   const { isFavorite, addToFavorites, removeFromFavorites } = useFavorites()
 
@@ -54,7 +54,6 @@ export function ProductDetail({ product }) {
   }
 
   const itemInCartQuantity = getItemQuantity(product.id)
-  const totalQuantity = itemInCartQuantity + quantity
   const inFav = isFavorite(product.id)
 
   return (
